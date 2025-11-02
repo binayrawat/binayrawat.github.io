@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ECS Fargate Lab — Binay Rawat</title>
+  <meta name="description" content="Lab demo: containerized API on AWS ECS Fargate with Terraform and GitHub Actions." />
+  <style>
+    body {font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Arial, sans-serif; margin:0; color:#111; background:#f6f8fa;}
+    header {background:#232f3e; color:#fff; padding:24px 20px;}
+    .wrap {max-width:900px; margin:0 auto; padding:0 20px;}
+    a {color:#0b5bd3; text-decoration:none;}
+    .pill {display:inline-block; border:1px solid #ddd; border-radius:999px; padding:4px 10px; margin:4px 6px 0 0; font-size:0.85rem; background:#fafafa;}
+    .card {background:#fff; border:1px solid #e8e8e8; border-radius:10px; padding:16px; margin:16px 0;}
+    footer {padding:30px 20px; background:#232f3e; color:#fff; margin-top:30px; font-size:0.95rem;}
+    code, pre {background:#fff; border:1px solid #eee; padding:10px; border-radius:6px; display:block; overflow:auto;}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <a href="index.html" style="color:#bcd3ff;">⬅ Home</a>
+      <h1>ECS Fargate Microservice (Lab)</h1>
+      <p>Sanitized demonstration. No company IP.</p>
+      <div>
+        <span class="pill">AWS</span><span class="pill">ECS (Fargate)</span><span class="pill">Docker</span><span class="pill">Terraform</span><span class="pill">GitHub Actions</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <div class="card">
+      <h2>Goal</h2>
+      <p>Run a simple containerized API on ECS Fargate with least-privilege IAM, provisioned by Terraform.</p>
+    </div>
+
+    <div class="card">
+      <h2>Architecture (Lab)</h2>
+      <ul>
+        <li>ALB (or public service) → ECS Service (Fargate) → Task (Docker image from ECR)</li>
+        <li>Logs → CloudWatch; config via env vars/SSM</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>Quick Start (local → ECR → ECS)</h2>
+      <ol>
+        <li>Build app locally:
+<pre><code>cd labs/ecs-fargate/app
+docker build -t ecs-lab:demo .</code></pre></li>
+        <li>Create ECR repo (once) and push the image (replace REGION/ACCOUNT):
+<pre><code>aws ecr create-repository --repository-name ecs-lab
+aws ecr get-login-password --region REGION | docker login --username AWS --password-stdin ACCOUNT_ID.dkr.ecr.REGION.amazonaws.com
+docker tag ecs-lab:demo ACCOUNT_ID.dkr.ecr.REGION.amazonaws.com/ecs-lab:demo
+docker push ACCOUNT_ID.dkr.ecr.REGION.amazonaws.com/ecs-lab:demo</code></pre></li>
+        <li>Use Terraform to wire ECS service (see repo folder). Then:
+<pre><code>cd ../terraform
+terraform init
+terraform apply</code></pre></li>
+      </ol>
+    </div>
+
+    <div class="card">
+      <h2>What this demonstrates</h2>
+      <ul>
+        <li>Containerized API in Docker</li>
+        <li>Image lifecycle via ECR</li>
+        <li>IaC with Terraform (cluster/service/task)</li>
+      </ul>
+    </div>
+
+    <p><a href="projects.html">⬅ Back to Projects</a></p>
+  </main>
+
+  <footer>
+    <div class="wrap">© <span id="y"></span> Binay Rawat — Built on GitHub Pages</div>
+  </footer>
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</body>
+</html>
