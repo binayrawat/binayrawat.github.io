@@ -21,139 +21,43 @@
     footer {padding:30px 20px; background:#232f3e; color:#fff; margin-top:30px; font-size:0.95rem;}
   </style>
 </head>
+
 <body>
   <header>
     <div class="wrap">
+      <!-- Navigation links -->
       <nav>
-        <a href="index.html">Home</a>
-        <a href="projects.html"><strong>Projects</strong></a>
+        <a href="index.html">🏠 Home</a>
+        <a href="projects.html"><strong>📂 Projects</strong></a>
       </nav>
+
       <h1>Selected Projects (Sanitized Labs & Case Studies)</h1>
-      <p class="meta">No company IP. Problem → Approach → Result. Links point to public lab repos or notes.</p>
+      <p class="meta">No company IP. Each project shows Problem → Approach → Result.</p>
     </div>
   </header>
 
   <main class="wrap">
-    <h2>AWS & Containers</h2>
-    <div class="grid">
-      <div class="card">
-        <h3>ECS Fargate Microservice (Lab)</h3>
-        <p><strong>Problem:</strong> Minimize ops overhead for containerized APIs.<br>
-           <strong>Approach:</strong> ECS Fargate + ALB, IaC with Terraform; GitHub Actions for build/scan/deploy; least-privilege IAM.<br>
-           <strong>Result:</strong> Zero servers managed; blue/green via task revisions; faster rollbacks.</p>
-        <div>
-          <span class="pill">AWS</span><span class="pill">ECS</span><span class="pill">Docker</span><span class="pill">Terraform</span><span class="pill">GitHub Actions</span>
-        </div>
-        <p><a href="#">Repo (soon)</a> · <a href="#">Runbook</a></p>
-      </div>
+    <h2>Coming Soon...</h2>
+    <p>This page will soon include sanitized examples of my work in:</p>
+    <ul>
+      <li>AWS ECS (Fargate) Deployments</li>
+      <li>Serverless (Lambda + Step Functions)</li>
+      <li>IoT Core data ingestion</li>
+      <li>Packer + Terraform automation</li>
+      <li>Oracle database migration projects</li>
+      <li>Azure AD SSO integrations</li>
+    </ul>
 
-      <div class="card">
-        <h3>CI/CD for Containers</h3>
-        <p><strong>Approach:</strong> GitHub Actions: Docker build → Trivy scan → push to ECR → Terraform apply (plan + manual approve).<br>
-           <strong>Result:</strong> Consistent builds, security gates, environment-based deploys.</p>
-        <div>
-          <span class="pill">Docker</span><span class="pill">ECR</span><span class="pill">Terraform</span><span class="pill">Security</span>
-        </div>
-        <p><a href="#">Workflow template (soon)</a></p>
-      </div>
-    </div>
-
-    <h2>Serverless & Integration</h2>
-    <div class="grid">
-      <div class="card">
-        <h3>Event-Driven Serverless (Lambda + Step Functions)</h3>
-        <p><strong>Problem:</strong> Orchestrate multi-step data processing without servers.<br>
-           <strong>Approach:</strong> API Gateway → Lambda → Step Functions for branching/retries; CloudWatch for metrics; S3/DynamoDB for state.<br>
-           <strong>Result:</strong> Scalable, pay-per-use pipeline with deterministic retries.</p>
-        <div>
-          <span class="pill">Lambda</span><span class="pill">Step Functions</span><span class="pill">API Gateway</span><span class="pill">S3</span><span class="pill">DynamoDB</span>
-        </div>
-        <p><a href="#">Sample state machine (soon)</a></p>
-      </div>
-
-      <div class="card">
-        <h3>IoT Telemetry Ingestion (Replayable)</h3>
-        <p><strong>Approach:</strong> AWS IoT Core rule → Lambda → S3 (raw) + DynamoDB (indexed); optional Kinesis for streaming; replay from S3 for backfill.<br>
-           <strong>Result:</strong> Decoupled pipeline; easy reprocessing without device changes.</p>
-        <div>
-          <span class="pill">AWS IoT Core</span><span class="pill">Lambda</span><span class="pill">Kinesis</span><span class="pill">S3</span>
-        </div>
-        <p><a href="#">Demo repo (soon)</a></p>
-      </div>
-    </div>
-
-    <h2>Infra Automation & Platforms</h2>
-    <div class="grid">
-      <div class="card">
-        <h3>Packer + AMI Build Pipeline</h3>
-        <p><strong>Approach:</strong> Packer templates for hardened AMIs; parameterized builds per env; image scans; immutable deploys to ECS/EC2.<br>
-           <strong>Result:</strong> Faster launches, consistent base images across teams.</p>
-        <div>
-          <span class="pill">Packer</span><span class="pill">AMI</span><span class="pill">EC2</span><span class="pill">Security</span>
-        </div>
-        <p><a href="#">Packer template (soon)</a></p>
-      </div>
-
-      <div class="card">
-        <h3>Terraform AWS Modules</h3>
-        <p><strong>Approach:</strong> Opinionated modules for VPC, ECS service, IAM roles, CloudWatch logs; tfvars pattern; remote state.<br>
-           <strong>Result:</strong> Reusable, standardized infra building blocks.</p>
-        <div>
-          <span class="pill">Terraform</span><span class="pill">AWS</span><span class="pill">Modules</span>
-        </div>
-        <p><a href="#">Modules repo (soon)</a></p>
-      </div>
-    </div>
-
-    <h2>Platforms & Identity</h2>
-    <div class="grid">
-      <div class="card">
-        <h3>Windows & Linux Server Automation (On-Prem & AWS)</h3>
-        <p><strong>Approach:</strong> Automated provisioning (CloudInit/WinRM), patching, logs to CloudWatch; least-privilege IAM; SSM Session Manager.<br>
-           <strong>Result:</strong> Consistent builds, lower manual ops; unified access and audit trails.</p>
-        <div>
-          <span class="pill">Windows</span><span class="pill">Linux</span><span class="pill">SSM</span><span class="pill">CloudWatch</span>
-        </div>
-        <p><a href="#">Baseline scripts (soon)</a></p>
-      </div>
-
-      <div class="card">
-        <h3>Azure AD Integration (Identity & SSO)</h3>
-        <p><strong>Approach:</strong> Azure AD as IdP for app SSO (OIDC/SAML); group-based access; SCIM provisioning where supported.<br>
-           <strong>Result:</strong> Centralized identity, reduced credential sprawl, easier audits.</p>
-        <div>
-          <span class="pill">Azure AD</span><span class="pill">OIDC/SAML</span><span class="pill">SSO</span>
-        </div>
-        <p><a href="#">SSO guide (soon)</a></p>
-      </div>
-    </div>
-
-    <h2>Data & Migrations</h2>
-    <div class="grid">
-      <div class="card">
-        <h3>Oracle → AWS Migration (Pattern)</h3>
-        <p><strong>Approach:</strong> Assess → schema conversion (where applicable) → DMS/Log-based replication → cutover runbook; backups & rollback plan.<br>
-           <strong>Result:</strong> Reduced downtime migrations; tested rollback & validation steps.</p>
-        <div>
-          <span class="pill">Oracle</span><span class="pill">AWS DMS</span><span class="pill">RDS/Aurora*</span>
-        </div>
-        <p><a href="#">Migration checklist (soon)</a></p>
-      </div>
-
-      <div class="card">
-        <h3>Solution Architecture Gallery</h3>
-        <p>Vendor-neutral diagrams (sanitized) for common patterns: public API with ECS, serverless data pipeline, multi-AZ HA, hybrid on-prem ↔ AWS connectivity.</p>
-        <div>
-          <span class="pill">Architecture</span><span class="pill">Diagrams</span><span class="pill">HA/DR</span>
-        </div>
-        <p><a href="#">Diagrams (soon)</a></p>
-      </div>
-    </div>
+    <p>Stay tuned for live demo links and public lab repos!</p>
   </main>
 
   <footer>
-    <div class="wrap">© <span id="y"></span> Binay Rawat — Built on GitHub Pages · <a href="index.html" style="color:#bcd3ff;">Back to Home</a></div>
+    <div class="wrap">
+      © <span id="year"></span> Binay Rawat — Built on GitHub Pages · 
+      <a href="index.html" style="color:#bcd3ff;">⬅ Back to Home</a>
+    </div>
   </footer>
-  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>
