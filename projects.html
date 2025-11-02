@@ -6,7 +6,7 @@
   <title>Projects — Binay Rawat</title>
   <meta name="description" content="Projects by Binay Rawat — AWS, ECS, IoT, Docker, Terraform, Packer, Serverless, Azure AD, Oracle migration." />
   <style>
-    body {font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif; margin:0; color:#111; background:#f6f8fa;}
+    body {font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Arial, sans-serif; margin:0; color:#111; background:#f6f8fa;}
     header {background:#232f3e; color:#fff; padding:24px 20px;}
     .wrap {max-width:1000px; margin:0 auto; padding:0 20px;}
     nav a {color:#bcd3ff; margin-right:14px; text-decoration:none;}
@@ -25,36 +25,113 @@
 <body>
   <header>
     <div class="wrap">
-      <!-- Navigation links -->
       <nav>
         <a href="index.html">🏠 Home</a>
         <a href="projects.html"><strong>📂 Projects</strong></a>
       </nav>
-
       <h1>Selected Projects (Sanitized Labs & Case Studies)</h1>
-      <p class="meta">No company IP. Each project shows Problem → Approach → Result.</p>
+      <p class="meta">No company IP. Problem → Approach → Result.</p>
     </div>
   </header>
 
   <main class="wrap">
-    <h2>Coming Soon...</h2>
-    <p>This page will soon include sanitized examples of my work in:</p>
-    <ul>
-      <li>AWS ECS (Fargate) Deployments</li>
-      <li>Serverless (Lambda + Step Functions)</li>
-      <li>IoT Core data ingestion</li>
-      <li>Packer + Terraform automation</li>
-      <li>Oracle database migration projects</li>
-      <li>Azure AD SSO integrations</li>
-    </ul>
+    <h2>AWS & Containers</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>ECS Fargate Microservice (Lab)</h3>
+        <p><strong>Problem:</strong> Deploy a containerized app on AWS without managing servers.<br>
+           <strong>Approach:</strong> ECS Fargate + Terraform for IaC + GitHub Actions for CI/CD.<br>
+           <strong>Result:</strong> Fully automated, scalable container deployment.</p>
+        <div>
+          <span class="pill">AWS</span><span class="pill">ECS</span><span class="pill">Docker</span><span class="pill">Terraform</span><span class="pill">GitHub Actions</span>
+        </div>
+        <p><a href="ecs-lab.html">Open lab page</a></p>
+      </div>
 
-    <p>Stay tuned for live demo links and public lab repos!</p>
+      <div class="card">
+        <h3>CI/CD for Containers</h3>
+        <p><strong>Approach:</strong> GitHub Actions workflow to build, scan, and deploy Docker images to ECR and ECS.<br>
+           <strong>Result:</strong> Automated image build and deployment pipeline.</p>
+        <div>
+          <span class="pill">Docker</span><span class="pill">ECR</span><span class="pill">Terraform</span><span class="pill">Security</span>
+        </div>
+        <p><a href="#">Workflow template (coming soon)</a></p>
+      </div>
+    </div>
+
+    <h2>Serverless & Integration</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Event-Driven Serverless (Lambda + Step Functions)</h3>
+        <p><strong>Approach:</strong> API Gateway → Lambda → Step Functions with DynamoDB and CloudWatch.<br>
+           <strong>Result:</strong> Scalable, pay-per-use serverless workflow.</p>
+        <div>
+          <span class="pill">Lambda</span><span class="pill">Step Functions</span><span class="pill">API Gateway</span><span class="pill">DynamoDB</span>
+        </div>
+        <p><a href="#">Serverless demo (coming soon)</a></p>
+      </div>
+
+      <div class="card">
+        <h3>IoT Telemetry Ingestion</h3>
+        <p><strong>Approach:</strong> IoT Core → Lambda → S3 + DynamoDB for storage; CloudWatch for monitoring.<br>
+           <strong>Result:</strong> Reliable telemetry pipeline for IoT devices.</p>
+        <div>
+          <span class="pill">IoT Core</span><span class="pill">Lambda</span><span class="pill">S3</span><span class="pill">Kinesis</span>
+        </div>
+        <p><a href="#">IoT demo (coming soon)</a></p>
+      </div>
+    </div>
+
+    <h2>Infra Automation & Platforms</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Packer + AMI Build Pipeline</h3>
+        <p><strong>Approach:</strong> Packer templates for secure, versioned AMIs integrated with Terraform.<br>
+           <strong>Result:</strong> Consistent base images across environments.</p>
+        <div>
+          <span class="pill">Packer</span><span class="pill">AMI</span><span class="pill">EC2</span><span class="pill">Terraform</span>
+        </div>
+        <p><a href="#">Packer template (coming soon)</a></p>
+      </div>
+
+      <div class="card">
+        <h3>Terraform AWS Modules</h3>
+        <p><strong>Approach:</strong> Modular IaC for VPC, ECS, and IAM roles using Terraform.<br>
+           <strong>Result:</strong> Faster, reusable deployments.</p>
+        <div>
+          <span class="pill">Terraform</span><span class="pill">AWS</span><span class="pill">Modules</span>
+        </div>
+        <p><a href="#">Terraform modules (coming soon)</a></p>
+      </div>
+    </div>
+
+    <h2>Data & Migration</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Oracle → AWS Migration</h3>
+        <p><strong>Approach:</strong> DMS for migration, schema conversion, and validation.<br>
+           <strong>Result:</strong> Low downtime, secure cloud migration.</p>
+        <div>
+          <span class="pill">Oracle</span><span class="pill">AWS DMS</span><span class="pill">RDS</span>
+        </div>
+        <p><a href="#">Migration checklist (coming soon)</a></p>
+      </div>
+
+      <div class="card">
+        <h3>Azure AD Integration</h3>
+        <p><strong>Approach:</strong> Azure AD SSO and SCIM provisioning for identity management.<br>
+           <strong>Result:</strong> Unified identity across platforms.</p>
+        <div>
+          <span class="pill">Azure AD</span><span class="pill">SSO</span><span class="pill">OIDC</span>
+        </div>
+        <p><a href="#">Azure AD guide (coming soon)</a></p>
+      </div>
+    </div>
   </main>
 
   <footer>
     <div class="wrap">
-      © <span id="year"></span> Binay Rawat — Built on GitHub Pages · 
-      <a href="index.html" style="color:#bcd3ff;">⬅ Back to Home</a>
+      © <span id="year"></span> Binay Rawat — Built on GitHub Pages · <a href="index.html" style="color:#bcd3ff;">⬅ Back to Home</a>
     </div>
   </footer>
 
