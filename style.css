@@ -169,11 +169,12 @@ body {
   position: relative;
   justify-self: end;
   width: 240px;
+  isolation: isolate;
 }
 .profile-portrait::before {
   content: '';
   position: absolute;
-  inset: 12px -12px -12px 12px;
+  inset: -8px;
   border: 1px solid var(--accent);
   border-radius: var(--radius);
   z-index: -1;
