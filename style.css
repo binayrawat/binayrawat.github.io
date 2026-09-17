@@ -166,18 +166,8 @@ body {
 .hero-copy { min-width: 0; }
 .profile-portrait {
   margin: 0;
-  position: relative;
   justify-self: end;
   width: 240px;
-  isolation: isolate;
-}
-.profile-portrait::before {
-  content: '';
-  position: absolute;
-  inset: -8px;
-  border: 1px solid var(--accent);
-  border-radius: var(--radius);
-  z-index: -1;
 }
 .profile-portrait img {
   display: block;
@@ -186,7 +176,7 @@ body {
   object-fit: cover;
   object-position: center top;
   border-radius: var(--radius);
-  border: 1px solid var(--border);
+  border: 2px solid var(--accent);
   background: var(--surface);
 }
 .portrait-fallback {
