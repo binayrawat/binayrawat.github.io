@@ -34,80 +34,97 @@
 
 <main>
   <section class="hero wrap" style="padding-bottom: 40px;">
-    <p class="eyebrow">Sanitized architecture patterns · no company IP</p>
-    <h1>Architecture decisions that survive production.</h1>
+    <p class="eyebrow">Reference architectures · SaaS · cloud-native · robotics</p>
+    <h1>Reusable architecture patterns for modern platforms.</h1>
     <p class="hero-sub">
-      Genericized decision records and delivery flows based on platform, edge, and cloud work.
-      Names, credentials, device identifiers, coordinates, and company-specific implementation
-      details are intentionally excluded.
+      Generic reference designs for SaaS applications, cloud-native delivery, and robotics edge
+      systems. These examples focus on trade-offs, boundaries, and operational behavior rather
+      than any one company or proprietary implementation.
     </p>
   </section>
 
   <section class="section wrap reveal" style="border-top: none; padding-top: 0;">
-    <h2 class="section-title"><span>// release promotion flow</span></h2>
-    <div class="flow" aria-label="Release promotion flow">
-      <div class="flow-node">Commit<br>and review</div>
+    <h2 class="section-title"><span>// SaaS application flow</span></h2>
+    <div class="flow" aria-label="SaaS application flow">
+      <div class="flow-node">Web and mobile<br>clients</div>
       <div class="flow-arrow">-&gt;</div>
-      <div class="flow-node">Build and test<br>OCI image</div>
+      <div class="flow-node">CDN and<br>API gateway</div>
       <div class="flow-arrow">-&gt;</div>
-      <div class="flow-node">Pin digest<br>and Git SHA</div>
+      <div class="flow-node">Stateless<br>application services</div>
       <div class="flow-arrow">-&gt;</div>
-      <div class="flow-node">Physical<br>qualification</div>
+      <div class="flow-node">Queue and<br>workflow workers</div>
       <div class="flow-arrow">-&gt;</div>
-      <div class="flow-node">Promote<br>release candidate</div>
+      <div class="flow-node">Tenant-aware<br>data layer</div>
       <div class="flow-arrow">-&gt;</div>
-      <div class="flow-node">Activate with<br>last-known-good fallback</div>
+      <div class="flow-node">Logs, metrics,<br>and audit trail</div>
     </div>
   </section>
 
   <section class="section wrap reveal">
-    <h2 class="section-title"><span>// edge-to-cloud flow</span></h2>
-    <div class="flow" aria-label="Edge to cloud data flow">
-      <div class="flow-node">Sensors and<br>embedded devices</div>
+    <h2 class="section-title"><span>// cloud-native GitOps flow</span></h2>
+    <div class="flow" aria-label="Cloud-native GitOps flow">
+      <div class="flow-node">Developer<br>commit</div>
       <div class="flow-arrow">-&gt;</div>
-      <div class="flow-node">Edge gateway<br>and local buffer</div>
+      <div class="flow-node">CI: test,<br>scan, build</div>
+      <div class="flow-arrow">-&gt;</div>
+      <div class="flow-node">Registry with<br>immutable artifact</div>
+      <div class="flow-arrow">-&gt;</div>
+      <div class="flow-node">Versioned<br>environment config</div>
+      <div class="flow-arrow">-&gt;</div>
+      <div class="flow-node">GitOps controller<br>reconciles state</div>
+      <div class="flow-arrow">-&gt;</div>
+      <div class="flow-node">Progressive delivery<br>and observability</div>
+    </div>
+  </section>
+
+  <section class="section wrap reveal">
+    <h2 class="section-title"><span>// robotics edge flow</span></h2>
+    <div class="flow" aria-label="Robotics edge flow">
+      <div class="flow-node">Sensors and<br>robot devices</div>
+      <div class="flow-arrow">-&gt;</div>
+      <div class="flow-node">Local gateway<br>and safety logic</div>
       <div class="flow-arrow">-&gt;</div>
       <div class="flow-node">MQTT and<br>device identity</div>
       <div class="flow-arrow">-&gt;</div>
-      <div class="flow-node">Cloud ingestion<br>and storage</div>
+      <div class="flow-node">Cloud telemetry<br>and command plane</div>
       <div class="flow-arrow">-&gt;</div>
-      <div class="flow-node">Monitoring,<br>alerting, and operations</div>
+      <div class="flow-node">Monitoring,<br>replay, and analytics</div>
     </div>
   </section>
 
   <section class="section wrap reveal">
-    <h2 class="section-title"><span>// sanitized decision records</span></h2>
+    <h2 class="section-title"><span>// architecture decision records</span></h2>
     <div class="architecture-grid">
       <article class="architecture-card">
-        <h3>ADR: Digest-pinned releases</h3>
+        <h3>ADR: Tenant isolation</h3>
         <ul class="decision-list">
-          <li><strong>Context:</strong> field systems need reproducible deployments and traceability.</li>
-          <li><strong>Decision:</strong> release immutable OCI image digests with source and revision metadata.</li>
-          <li><strong>Result:</strong> every deployment can be mapped back to reviewed source and qualified artifacts.</li>
+          <li><strong>Context:</strong> a SaaS product must protect customer data while remaining operable at scale.</li>
+          <li><strong>Decision:</strong> define tenant boundaries in identity, authorization, data access, and audit events.</li>
+          <li><strong>Result:</strong> isolation becomes an explicit cross-cutting concern rather than an assumption inside application code.</li>
         </ul>
       </article>
       <article class="architecture-card">
-        <h3>ADR: Offline-first edge operation</h3>
+        <h3>ADR: Git as the deployment interface</h3>
         <ul class="decision-list">
-          <li><strong>Context:</strong> field connectivity can be intermittent or unavailable.</li>
-          <li><strong>Decision:</strong> keep critical operation local and treat cloud connectivity as an enhancement.</li>
-          <li><strong>Result:</strong> local buffering, controlled activation, and last-known-good recovery reduce field risk.</li>
+          <li><strong>Context:</strong> manual environment changes create drift and weak auditability.</li>
+          <li><strong>Decision:</strong> store desired application and environment state in version-controlled configuration.</li>
+          <li><strong>Result:</strong> review, rollback, reconciliation, and deployment history use one transparent workflow.</li>
         </ul>
       </article>
       <article class="architecture-card">
-        <h3>ADR: Standardized field hubs</h3>
+        <h3>ADR: Offline-capable robotics control</h3>
         <ul class="decision-list">
-          <li><strong>Context:</strong> repeated device setup creates drift and slows deployments.</li>
-          <li><strong>Decision:</strong> provision a standard hub image and automate OS, packages, containers, permissions, and services.</li>
-          <li><strong>Result:</strong> repeatable field environments with a smaller operational support surface.</li>
+          <li><strong>Context:</strong> robots must remain safe and useful when cloud connectivity is degraded.</li>
+          <li><strong>Decision:</strong> keep safety-critical control and buffering at the edge; use the cloud for coordination and insight.</li>
+          <li><strong>Result:</strong> the system degrades gracefully instead of making connectivity a single point of failure.</li>
         </ul>
       </article>
       <article class="architecture-card">
-        <h3>ADR: MQTT at the edge boundary</h3>
+        <h3>ADR: Immutable release artifacts</h3>
         <ul class="decision-list">
-          <li><strong>Context:</strong> devices and services need a lightweight, decoupled communication boundary.</li>
-          <li><strong>Decision:</strong> use MQTT for telemetry, configuration, inventory, and device-state messaging.</li>
-          <li><strong>Result:</strong> producers and consumers can evolve independently while retaining observable message flows.</li>
+          <li><strong>Context:</strong> cloud and edge releases must be reproducible across environments.</li>
+          <li><strong>Decision:</strong> promote versioned, digest-pinned artifacts through automated tests and qualification gates.</li>
+          <li><strong>Result:</strong> rollback and incident analysis can identify exactly what was deployed.</li>
         </ul>
       </article>
     </div>
