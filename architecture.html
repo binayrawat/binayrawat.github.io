@@ -93,6 +93,43 @@
   </section>
 
   <section class="section wrap reveal">
+    <h2 class="section-title"><span>// unified endpoint management</span></h2>
+    <p class="contact-lead">
+      A generic reference architecture for startups that need one secure operating model across
+      Windows and macOS. The design separates identity, device ownership, endpoint management,
+      security policy, and employee lifecycle operations while keeping the experience simple for
+      users and administrators.
+    </p>
+    <div class="flow" aria-label="Unified endpoint management flow">
+      <div class="flow-node">Microsoft Entra ID<br>identity and policy</div>
+      <div class="flow-arrow">-&gt;</div>
+      <div class="flow-node">Apple Business<br>device ownership</div>
+      <div class="flow-arrow">+</div>
+      <div class="flow-node">Microsoft Intune<br>management plane</div>
+      <div class="flow-arrow">-&gt;</div>
+      <div class="flow-node">Windows and macOS<br>enrollment, policy, security</div>
+    </div>
+    <div class="architecture-grid">
+      <article class="architecture-card">
+        <h3>Identity and access</h3>
+        <p>Use a central identity provider for accounts, groups, MFA, conditional access, single sign-on, and joiner/mover/leaver lifecycle events.</p>
+      </article>
+      <article class="architecture-card">
+        <h3>Device ownership and enrollment</h3>
+        <p>Connect organizational device purchasing and ownership with automated enrollment so devices arrive ready for secure, policy-driven setup.</p>
+      </article>
+      <article class="architecture-card">
+        <h3>Cross-platform management</h3>
+        <p>Apply a consistent management model across Windows and macOS for configuration, applications, encryption, endpoint protection, recovery keys, and remote actions.</p>
+      </article>
+      <article class="architecture-card">
+        <h3>Lifecycle and reuse</h3>
+        <p>Design onboarding, daily operation, offboarding, wipe, re-enrollment, and reassignment as one auditable lifecycle instead of separate manual processes.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section wrap reveal">
     <h2 class="section-title"><span>// reference design principles</span></h2>
     <div class="architecture-grid">
       <article class="architecture-card">
