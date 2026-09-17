@@ -93,38 +93,38 @@
   </section>
 
   <section class="section wrap reveal">
-    <h2 class="section-title"><span>// architecture decision records</span></h2>
+    <h2 class="section-title"><span>// reference design principles</span></h2>
     <div class="architecture-grid">
       <article class="architecture-card">
-        <h3>ADR: Tenant isolation</h3>
+        <h3>Reproducible deployments</h3>
         <ul class="decision-list">
-          <li><strong>Context:</strong> a SaaS product must protect customer data while remaining operable at scale.</li>
-          <li><strong>Decision:</strong> define tenant boundaries in identity, authorization, data access, and audit events.</li>
-          <li><strong>Result:</strong> isolation becomes an explicit cross-cutting concern rather than an assumption inside application code.</li>
+          <li><strong>Principle:</strong> treat build outputs as immutable, versioned artifacts.</li>
+          <li><strong>Practice:</strong> connect releases to reviewed source, automated checks, and deployment metadata.</li>
+          <li><strong>Benefit:</strong> teams can reproduce, audit, and roll back deployments with confidence.</li>
         </ul>
       </article>
       <article class="architecture-card">
-        <h3>ADR: Git as the deployment interface</h3>
+        <h3>Resilient distributed operation</h3>
         <ul class="decision-list">
-          <li><strong>Context:</strong> manual environment changes create drift and weak auditability.</li>
-          <li><strong>Decision:</strong> store desired application and environment state in version-controlled configuration.</li>
-          <li><strong>Result:</strong> review, rollback, reconciliation, and deployment history use one transparent workflow.</li>
+          <li><strong>Principle:</strong> keep essential behavior available when dependencies are degraded.</li>
+          <li><strong>Practice:</strong> define local fallbacks, buffering, retry behavior, and recovery boundaries.</li>
+          <li><strong>Benefit:</strong> temporary network or service failures do not automatically become user-facing outages.</li>
         </ul>
       </article>
       <article class="architecture-card">
-        <h3>ADR: Offline-capable robotics control</h3>
+        <h3>Automated environment provisioning</h3>
         <ul class="decision-list">
-          <li><strong>Context:</strong> robots must remain safe and useful when cloud connectivity is degraded.</li>
-          <li><strong>Decision:</strong> keep safety-critical control and buffering at the edge; use the cloud for coordination and insight.</li>
-          <li><strong>Result:</strong> the system degrades gracefully instead of making connectivity a single point of failure.</li>
+          <li><strong>Principle:</strong> make infrastructure and runtime configuration repeatable.</li>
+          <li><strong>Practice:</strong> define environments as code and automate dependencies, permissions, and service setup.</li>
+          <li><strong>Benefit:</strong> teams reduce configuration drift and shorten the path from a clean environment to production.</li>
         </ul>
       </article>
       <article class="architecture-card">
-        <h3>ADR: Immutable release artifacts</h3>
+        <h3>Decoupled event communication</h3>
         <ul class="decision-list">
-          <li><strong>Context:</strong> cloud and edge releases must be reproducible across environments.</li>
-          <li><strong>Decision:</strong> promote versioned, digest-pinned artifacts through automated tests and qualification gates.</li>
-          <li><strong>Result:</strong> rollback and incident analysis can identify exactly what was deployed.</li>
+          <li><strong>Principle:</strong> separate producers and consumers with explicit message contracts.</li>
+          <li><strong>Practice:</strong> use durable messaging, identity, observability, and schema evolution rules.</li>
+          <li><strong>Benefit:</strong> components can evolve independently without turning every change into a coordinated release.</li>
         </ul>
       </article>
     </div>
