@@ -176,7 +176,7 @@ body {
   object-fit: cover;
   object-position: center top;
   border-radius: var(--radius);
-  border: 2px solid var(--accent);
+  border: 1px solid var(--border);
   background: var(--surface);
 }
 .portrait-fallback {
