@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Architecture — Binay Rawat</title>
+<meta name="description" content="Sanitized architecture decisions and delivery flows by Binay Rawat." />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>☁️</text></svg>" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div class="bg-grid" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="index.html">~/binay<span class="dot">$</span></a>
+    <nav class="nav" id="nav">
+      <a href="index.html#about">About</a>
+      <a href="index.html#skills">Skills</a>
+      <a href="index.html#experience">Experience</a>
+      <a href="projects.html">Projects</a>
+      <a href="architecture.html" class="nav-cta">Architecture</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main>
+  <section class="hero wrap" style="padding-bottom: 40px;">
+    <p class="eyebrow">Sanitized architecture patterns · no company IP</p>
+    <h1>Architecture decisions that survive production.</h1>
+    <p class="hero-sub">
+      Genericized decision records and delivery flows based on platform, edge, and cloud work.
+      Names, credentials, device identifiers, coordinates, and company-specific implementation
+      details are intentionally excluded.
+    </p>
+  </section>
+
+  <section class="section wrap reveal" style="border-top: none; padding-top: 0;">
+    <h2 class="section-title"><span>// release promotion flow</span></h2>
+    <div class="flow" aria-label="Release promotion flow">
+      <div class="flow-node">Commit<br>and review</div>
+      <div class="flow-arrow">-&gt;</div>
+      <div class="flow-node">Build and test<br>OCI image</div>
+      <div class="flow-arrow">-&gt;</div>
+      <div class="flow-node">Pin digest<br>and Git SHA</div>
+      <div class="flow-arrow">-&gt;</div>
+      <div class="flow-node">Physical<br>qualification</div>
+      <div class="flow-arrow">-&gt;</div>
+      <div class="flow-node">Promote<br>release candidate</div>
+      <div class="flow-arrow">-&gt;</div>
+      <div class="flow-node">Activate with<br>last-known-good fallback</div>
+    </div>
+  </section>
+
+  <section class="section wrap reveal">
+    <h2 class="section-title"><span>// edge-to-cloud flow</span></h2>
+    <div class="flow" aria-label="Edge to cloud data flow">
+      <div class="flow-node">Sensors and<br>embedded devices</div>
+      <div class="flow-arrow">-&gt;</div>
+      <div class="flow-node">Edge gateway<br>and local buffer</div>
+      <div class="flow-arrow">-&gt;</div>
+      <div class="flow-node">MQTT and<br>device identity</div>
+      <div class="flow-arrow">-&gt;</div>
+      <div class="flow-node">Cloud ingestion<br>and storage</div>
+      <div class="flow-arrow">-&gt;</div>
+      <div class="flow-node">Monitoring,<br>alerting, and operations</div>
+    </div>
+  </section>
+
+  <section class="section wrap reveal">
+    <h2 class="section-title"><span>// sanitized decision records</span></h2>
+    <div class="architecture-grid">
+      <article class="architecture-card">
+        <h3>ADR: Digest-pinned releases</h3>
+        <ul class="decision-list">
+          <li><strong>Context:</strong> field systems need reproducible deployments and traceability.</li>
+          <li><strong>Decision:</strong> release immutable OCI image digests with source and revision metadata.</li>
+          <li><strong>Result:</strong> every deployment can be mapped back to reviewed source and qualified artifacts.</li>
+        </ul>
+      </article>
+      <article class="architecture-card">
+        <h3>ADR: Offline-first edge operation</h3>
+        <ul class="decision-list">
+          <li><strong>Context:</strong> field connectivity can be intermittent or unavailable.</li>
+          <li><strong>Decision:</strong> keep critical operation local and treat cloud connectivity as an enhancement.</li>
+          <li><strong>Result:</strong> local buffering, controlled activation, and last-known-good recovery reduce field risk.</li>
+        </ul>
+      </article>
+      <article class="architecture-card">
+        <h3>ADR: Standardized field hubs</h3>
+        <ul class="decision-list">
+          <li><strong>Context:</strong> repeated device setup creates drift and slows deployments.</li>
+          <li><strong>Decision:</strong> provision a standard hub image and automate OS, packages, containers, permissions, and services.</li>
+          <li><strong>Result:</strong> repeatable field environments with a smaller operational support surface.</li>
+        </ul>
+      </article>
+      <article class="architecture-card">
+        <h3>ADR: MQTT at the edge boundary</h3>
+        <ul class="decision-list">
+          <li><strong>Context:</strong> devices and services need a lightweight, decoupled communication boundary.</li>
+          <li><strong>Decision:</strong> use MQTT for telemetry, configuration, inventory, and device-state messaging.</li>
+          <li><strong>Result:</strong> producers and consumers can evolve independently while retaining observable message flows.</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section class="section wrap reveal contact-section">
+    <h2 class="section-title"><span>// architecture focus</span></h2>
+    <p class="contact-lead">
+      Interested in Solution Architect, Cloud Platform Architect, and Senior DevOps opportunities
+      where architecture must connect business needs, delivery automation, and reliable operations.
+    </p>
+    <div class="contact-links">
+      <a class="contact-link" href="index.html#contact">Contact Binay</a>
+      <a class="contact-link" href="projects.html">View sanitized labs</a>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p>© <span id="year"></span> Binay Rawat. <a href="index.html" class="footer-link">← Back home</a></p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

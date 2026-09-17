@@ -435,6 +435,63 @@ body {
   margin: 0;
 }
 
+/* Architecture page */
+.architecture-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+}
+.architecture-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 22px;
+}
+.architecture-card h3 {
+  color: var(--accent);
+  font-family: var(--font-display);
+  font-size: 1.02rem;
+  margin: 0 0 10px;
+}
+.architecture-card p,
+.decision-list {
+  color: var(--text-dim);
+  font-size: 0.9rem;
+  margin: 0;
+}
+.decision-list {
+  padding-left: 20px;
+}
+.decision-list li { margin-bottom: 10px; }
+.decision-list li:last-child { margin-bottom: 0; }
+.flow {
+  display: flex;
+  align-items: stretch;
+  gap: 10px;
+  overflow-x: auto;
+  padding: 4px 2px 12px;
+}
+.flow-node {
+  flex: 1 0 145px;
+  min-height: 78px;
+  display: grid;
+  place-items: center;
+  padding: 12px;
+  text-align: center;
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+}
+.flow-arrow {
+  align-self: center;
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 1.2rem;
+}
+
 /* Credentials */
 .cred-grid {
   display: grid;
@@ -594,4 +651,5 @@ pre code {
     justify-self: start;
     width: min(100%, 220px);
   }
+  .flow { align-items: stretch; }
 }
