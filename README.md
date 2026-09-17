@@ -1,7 +1,7 @@
 # binayrawat.github.io
 
 Personal portfolio site for Binay Rawat — Senior Cloud Platform Engineer (AWS, Terraform,
-Kubernetes, CI/CD, platform reliability, edge computing).
+CI/CD, platform reliability, edge computing).
 
 Plain HTML/CSS/JS, no build step, no dependencies to install. Hosted on GitHub Pages at
 [binayrawat.github.io](https://binayrawat.github.io).

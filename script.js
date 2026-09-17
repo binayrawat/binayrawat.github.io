@@ -2,6 +2,15 @@
 const navToggle = document.getElementById('navToggle');
 const nav = document.getElementById('nav');
 
+const portrait = document.querySelector('.profile-portrait img');
+const portraitFallback = document.querySelector('.portrait-fallback');
+if (portrait && portraitFallback) {
+  portrait.addEventListener('error', () => {
+    portrait.remove();
+    portraitFallback.style.display = 'grid';
+  });
+}
+
 if (navToggle && nav) {
   navToggle.addEventListener('click', () => {
     const isOpen = nav.classList.toggle('is-open');
