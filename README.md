@@ -12,6 +12,7 @@ Plain HTML/CSS/JS, no build step, no dependencies to install. Hosted on GitHub P
 index.html      — home: about, skills, experience timeline, highlights, contact
 projects.html   — sanitized project write-ups (problem → approach → result), no company IP
 ecs-lab.html    — detailed lab walkthrough: ECS Fargate microservice with Terraform + GitHub Actions
+architecture.html — generic reference architectures, flows, and design principles
 style.css       — shared styling for all pages (dark theme by default, auto light mode)
 script.js       — mobile nav toggle, footer year, scroll-reveal animation
 ```

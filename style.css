@@ -199,7 +199,8 @@ body {
   line-height: 1.5;
   text-transform: uppercase;
 }
-}
+.hero--simple { display: block; }
+.hero--simple h1 { max-width: 24ch; }
 .eyebrow {
   font-family: var(--font-mono);
   color: var(--accent);
@@ -208,7 +209,7 @@ body {
   letter-spacing: 0.02em;
   margin: 0 0 18px;
 }
-.eyebrow::before { content: "$ whoami "; color: var(--text-dimmer); }
+.hero-copy .eyebrow::before { content: "$ whoami "; color: var(--text-dimmer); }
 .hero h1 {
   font-family: var(--font-display);
   font-size: clamp(2rem, 5vw, 3.1rem);
