@@ -172,6 +172,7 @@ body {
 .profile-portrait img {
   display: block;
   width: 100%;
+  height: auto;
   aspect-ratio: 1;
   object-fit: cover;
   object-position: center top;
@@ -200,7 +201,7 @@ body {
   text-transform: uppercase;
 }
 .hero--simple { display: block; }
-.hero--simple h1 { max-width: 24ch; }
+.hero.hero--simple h1 { max-width: 24ch; }
 .eyebrow {
   font-family: var(--font-mono);
   color: var(--accent);
@@ -488,6 +489,8 @@ body {
 }
 .flow-arrow {
   align-self: center;
+  flex-shrink: 0;
+  white-space: nowrap;
   color: var(--accent);
   font-family: var(--font-mono);
   font-size: 1.2rem;
@@ -514,7 +517,6 @@ body {
   color: var(--text-dimmer);
   font-size: 0.85rem;
   margin: 0;
-  overflow-wrap: anywhere;
 }
 
 /* Contact */
@@ -576,6 +578,11 @@ pre {
   overflow-x: auto;
   margin: 0 0 4px;
 }
+:not(pre) > code {
+  font-family: var(--font-mono);
+  font-size: 0.88em;
+  color: var(--text);
+}
 pre code {
   font-family: var(--font-mono);
   font-size: 0.82rem;
@@ -609,13 +616,13 @@ pre code {
   padding: 3px 10px;
 }
 
-/* Reveal animation */
-.reveal {
+/* Reveal animation (only when JS is running, so content stays visible without it) */
+.js .reveal {
   opacity: 0;
   transform: translateY(16px);
   transition: opacity 0.6s ease, transform 0.6s ease;
 }
-.reveal.is-visible {
+.js .reveal.is-visible {
   opacity: 1;
   transform: translateY(0);
 }
@@ -634,9 +641,14 @@ pre code {
     gap: 0;
     padding: 8px 24px 16px;
     transform: translateY(-130%);
+    visibility: hidden;
+    transition: transform 0.2s ease, visibility 0s linear 0.2s;
+  }
+  .nav.is-open {
+    transform: translateY(0);
+    visibility: visible;
     transition: transform 0.2s ease;
   }
-  .nav.is-open { transform: translateY(0); }
   .nav a {
     padding: 12px 0;
     width: 100%;
