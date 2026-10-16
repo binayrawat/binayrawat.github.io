@@ -513,6 +513,7 @@ body {
   color: var(--text-dimmer);
   font-size: 0.85rem;
   margin: 0;
+  overflow-wrap: anywhere;
 }
 
 /* Contact */
